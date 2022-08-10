@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="442.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.hedspi.aims.ShopController">
+   <children>
+      <Label alignment="CENTER" layoutX="56.0" layoutY="14.0" prefHeight="56.0" prefWidth="236.0" text="Quản lý của hàng" textAlignment="CENTER" textFill="#295aa8" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="387.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TabPane layoutY="76.0" prefHeight="352.0" prefWidth="486.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <tabs>
+            <Tab fx:id="tabOrder" text="Hiển thị đơn hàng">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableOrder" onMouseClicked="#getDataOrder" prefHeight="243.0" prefWidth="672.0">
+                           <columns>
+                              <TableColumn fx:id="orderId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="orderTitle" prefWidth="232.0" text="Tiêu đề" />
+                              <TableColumn fx:id="orderCategory" prefWidth="168.0" text="Thể loại" />
+                              <TableColumn fx:id="orderCost" prefWidth="196.0" text="Giá tiền" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="deleteFromOrder" layoutX="515.0" layoutY="270.0" mnemonicParsing="false" onAction="#deleteFromOrder" text="Xóa khỏi giỏ" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="270.0" />
+                        <Button fx:id="createOrder" layoutX="53.0" layoutY="270.0" mnemonicParsing="false" onAction="#createOrder" prefHeight="28.0" prefWidth="100.0" text="Tạo Order" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="526.0" AnchorPane.topAnchor="270.0" />
+                        <Button fx:id="luckyItem" layoutX="378.0" layoutY="270.0" mnemonicParsing="false" onAction="#getLuckyItem" prefHeight="28.0" prefWidth="100.0" text="Vật may mắn" />
+                        <Button layoutX="205.0" layoutY="272.0" mnemonicParsing="false" onAction="#postOrder" prefHeight="28.0" prefWidth="115.0" text="Mua hàng" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="359.0" AnchorPane.topAnchor="270.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="tabDVD" text="DVD">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="462.0">
+                     <children>
+                        <TableView fx:id="tableDVD" layoutY="14.0" onMouseClicked="#getDataDVD" prefHeight="243.0" prefWidth="486.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="dvdId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="dvdTitle" prefWidth="113.0" text="Tiêu đề" />
+                              <TableColumn fx:id="dvdCategory" prefWidth="131.0" text="Thể loại" />
+                              <TableColumn fx:id="dvdDirectory" prefWidth="174.0" text="Giám đốc" />
+                              <TableColumn fx:id="dvdLength" minWidth="0.0" prefWidth="89.0" text="Độ dài" />
+                              <TableColumn fx:id="dvdCost" minWidth="0.0" prefWidth="96.0" text="Giá tiền" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="addDVD" layoutX="290.0" layoutY="270.0" mnemonicParsing="false" onAction="#addDVD" text="Thêm vào giỏ" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="260.0" />
+                        <Button fx:id="playDVD" layoutX="439.0" layoutY="262.0" mnemonicParsing="false" onAction="#playDVD" prefHeight="33.0" prefWidth="63.0" text="Play" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="260.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabBook" text="Sách">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableBook" onMouseClicked="#getDataBook" prefHeight="243.0" prefWidth="486.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="bookId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="bookTitle" prefWidth="137.0" text="Tiêu đề" />
+                              <TableColumn fx:id="bookCategory" prefWidth="120.0" text="Thể loại" />
+                              <TableColumn fx:id="bookAuthors" prefWidth="252.0" text="Tác giả" />
+                              <TableColumn fx:id="bookCost" prefWidth="94.0" text="Giá tiền" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="addBook" layoutX="290.0" layoutY="262.0" mnemonicParsing="false" onAction="#addBook" text="Thêm vào giỏ" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="260.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabCompact" text="Đĩa Compact">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableCD" onMouseClicked="#getDataCD" prefHeight="243.0" prefWidth="486.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="cdId" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="cdTitle" prefWidth="138.0" text="Tiêu đề" />
+                              <TableColumn fx:id="cdCategory" prefWidth="111.0" text="Thể loại" />
+                              <TableColumn fx:id="cdArtist" prefWidth="116.0" text="Nghệ sĩ" />
+                              <TableColumn fx:id="cdLength" prefWidth="109.0" text="Độ dài" />
+                              <TableColumn fx:id="cdCost" prefWidth="129.0" text="Giá tiền" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="addCD" layoutX="290.0" layoutY="271.0" mnemonicParsing="false" onAction="#addCD" text="Thêm vào giỏ" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="260.0" />
+                        <Button fx:id="playCD" layoutX="450.0" layoutY="264.0" mnemonicParsing="false" onAction="#playCD" text="Play" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="260.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabPlayTrack" text="Play Tracks">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableTrack" prefHeight="243.0" prefWidth="672.0">
+                           <columns>
+                              <TableColumn fx:id="trackTitle" prefWidth="319.0" text="Tiêu đề" />
+                              <TableColumn fx:id="trackLength" minWidth="0.0" prefWidth="352.0" text="Độ dài" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="reset" layoutX="422.0" layoutY="268.0" mnemonicParsing="false" onAction="#resetPlay" text="Reset" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="270.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ScrollBar layoutX="665.0" layoutY="130.0" orientation="VERTICAL" prefHeight="215.0" prefWidth="14.0" />
+      <TextField fx:id="txtCard" layoutX="386.0" layoutY="14.0" />
+      <Button layoutX="553.0" layoutY="14.0" mnemonicParsing="false" onAction="#recharge" prefHeight="25.0" prefWidth="76.0" text="Nạp tiền" />
+      <Label fx:id="errCard" layoutX="386.0" layoutY="53.0" prefHeight="17.0" prefWidth="149.0" textFill="RED" />
+   </children>
+</AnchorPane>
